@@ -390,11 +390,7 @@
 
     <script>
         // Initialize EmailJS
-        (function(){
-            emailjs.init({
-                publicKey: '2IF9YEXEjvII-sAHH'
-            });
-        })();
+        emailjs.init('2IF9YEXEjvII-sAHH');
         
         // Handle contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -405,7 +401,14 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            emailjs.sendForm('service_17o75ai', 'template_m5ub7ph', this)
+            emailjs.send('service_17o75ai', 'template_m5ub7ph', {
+                name: this.name.value,
+                email: this.email.value,
+                location: this.location.value,
+                budget: this.budget.value,
+                subject: this.subject.value,
+                message: this.message.value
+            })
                 .then(function(response) {
                     alert('Message sent successfully!');
                     document.getElementById('contactForm').reset();
