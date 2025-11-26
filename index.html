@@ -331,24 +331,35 @@
                 
                 <div class="contact-form">
                     <form id="contactForm">
-                        <div class="form-row">
-                            <input type="text" name="name" placeholder="Name*" required>
+                        <div class="form-row" style="flex-direction: column;">
+                            <input type="text" name="name" placeholder="Name*">
+                            <div id="nameError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
+                        </div>
+                        <div class="form-row" style="flex-direction: column;">
+                            <input type="email" name="email" placeholder="Email*">
+                            <div id="emailError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
+                        </div>
+                        <div class="form-row" style="flex-direction: column;">
+                            <input type="text" name="location" placeholder="Location*">
+                            <div id="locationError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
+                        </div>
+                        <div class="form-row" style="flex-direction: column;">
+                            <input type="tel" name="phone" placeholder="Phone Number*"  inputmode="numeric" maxlength="10"  oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            <div id="phoneError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
                         </div>
                         <div class="form-row">
-                            <input type="email" name="email" placeholder="Email*" required>
+                            <div style="flex: 1; display: flex; flex-direction: column;">
+                                <input type="text" name="budget" placeholder="Budget*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                <div id="budgetError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column;">
+                                <input type="text" name="subject" placeholder="Subject*">
+                                <div id="subjectError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
+                            </div>
                         </div>
-                        <div class="form-row">
-                            <input type="text" name="location" placeholder="Location*" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="tel" name="phone" placeholder="Phone Number*" pattern="[0-9]{10}" inputmode="numeric" maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="text" name="budget" placeholder="Budget*" pattern="[0-9]*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
-                            <input type="text" name="subject" placeholder="Subject*" required>
-                        </div>
-                        <div class="form-row">
-                            <textarea name="message" placeholder="Message*" rows="5" required></textarea>
+                        <div class="form-row" style="flex-direction: column;">
+                            <textarea name="message" placeholder="Message*" rows="5"></textarea>
+                            <div id="messageError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
                         </div>
                         <button type="submit" class="submit-btn" id="submitBtn">Submit ➤</button>
                     </form>
@@ -395,6 +406,75 @@
         // Handle contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Clear previous errors
+            const errorIds = ['nameError', 'emailError', 'locationError', 'phoneError', 'budgetError', 'subjectError', 'messageError'];
+            errorIds.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            
+            let hasError = false;
+            
+            // Validate name
+            if (!this.name.value.trim()) {
+                document.getElementById('nameError').textContent = 'Name is required';
+                document.getElementById('nameError').style.display = 'block';
+                hasError = true;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!this.email.value.trim()) {
+                document.getElementById('emailError').textContent = 'Email is required';
+                document.getElementById('emailError').style.display = 'block';
+                hasError = true;
+            } else if (!emailRegex.test(this.email.value)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('emailError').style.display = 'block';
+                hasError = true;
+            }
+            
+            // Validate location
+            if (!this.location.value.trim()) {
+                document.getElementById('locationError').textContent = 'Location is required';
+                document.getElementById('locationError').style.display = 'block';
+                hasError = true;
+            }
+            
+            // Validate phone number
+            const phoneNumber = this.phone.value;
+            if (!phoneNumber.trim()) {
+                document.getElementById('phoneError').textContent = 'Phone number is required';
+                document.getElementById('phoneError').style.display = 'block';
+                hasError = true;
+            } else if (phoneNumber.length !== 10 || !/^[0-9]{10}$/.test(phoneNumber)) {
+                document.getElementById('phoneError').textContent = 'Phone number must be exactly 10 digits';
+                document.getElementById('phoneError').style.display = 'block';
+                hasError = true;
+            }
+            
+            // Validate budget
+            if (!this.budget.value.trim()) {
+                document.getElementById('budgetError').textContent = 'Budget is required';
+                document.getElementById('budgetError').style.display = 'block';
+                hasError = true;
+            }
+            
+            // Validate subject
+            if (!this.subject.value.trim()) {
+                document.getElementById('subjectError').textContent = 'Subject is required';
+                document.getElementById('subjectError').style.display = 'block';
+                hasError = true;
+            }
+            
+            // Validate message
+            if (!this.message.value.trim()) {
+                document.getElementById('messageError').textContent = 'Message is required';
+                document.getElementById('messageError').style.display = 'block';
+                hasError = true;
+            }
+            
+            if (hasError) return;
             
             const submitBtn = document.getElementById('submitBtn');
             const originalText = submitBtn.textContent;
