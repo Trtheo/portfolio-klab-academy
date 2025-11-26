@@ -86,7 +86,7 @@
                     <p>I design and develop services for customers specializing creating stylish, modern websites, web services.</p>
                     <div class="about-buttons">
                         <button class="projects-btn">My Projects</button>
-                        <button class="download-btn">📥 Download CV</button>
+                        <button class="download-btn"><i class="fas fa-download"></i> Download CV</button>
                     </div>
                 </div>
             </div>
@@ -101,22 +101,22 @@
                 </div>
                 <div class="process-steps">
                     <div class="step">
-                        <div class="step-icon">📅</div>
+                        <div class="step-icon"><i class="fas fa-search"></i></div>
                         <h3>1. Research</h3>
                         <p>Design meets function in every pixel, blending clarity with intuitive motion.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon">📈</div>
+                        <div class="step-icon"><i class="fas fa-chart-line"></i></div>
                         <h3>2. Analyze</h3>
                         <p>Crafting clean, thoughtful interfaces where form flows seamlessly into function and clarity.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon">✏️</div>
+                        <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
                         <h3>3. Design</h3>
                         <p>I design seamless digital experiences with precision, purpose, and a touch of elegance.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon">💻</div>
+                        <div class="step-icon"><i class="fas fa-rocket"></i></div>
                         <h3>4. Launch</h3>
                         <p>I craft digital products where thoughtful design meets performance-driven, responsive development.</p>
                     </div>
@@ -298,21 +298,21 @@
                     
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <div class="contact-label">Address:</div>
                                 <div class="contact-value">Kigali , Rwanda</div>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <div class="contact-label">My Email:</div>
                                 <div class="contact-value">niyigabatheo10@gmail.com | bestscholars@hotmail.com</div>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
                             <div>
                                 <div class="contact-label">Call Me Now:</div>
                                 <div class="contact-value">+250 788 932 662</div>
@@ -341,7 +341,10 @@
                             <input type="text" name="location" placeholder="Location*" required>
                         </div>
                         <div class="form-row">
-                            <input type="text" name="budget" placeholder="Budget*" required>
+                            <input type="tel" name="phone" placeholder="Phone Number*" pattern="[0-9]{10}" inputmode="numeric" maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="budget" placeholder="Budget*" pattern="[0-9]*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                             <input type="text" name="subject" placeholder="Subject*" required>
                         </div>
                         <div class="form-row">
@@ -402,6 +405,7 @@
                 from_name: this.name.value,
                 from_email: this.email.value,
                 location: this.location.value,
+                phone: this.phone.value,
                 budget: this.budget.value,
                 subject: this.subject.value,
                 message: this.message.value
