@@ -308,7 +308,7 @@
                             <div class="contact-icon">✉️</div>
                             <div>
                                 <div class="contact-label">My Email:</div>
-                                <div class="contact-value">niyigabatheo10@gmail.com</div>
+                                <div class="contact-value">niyigabatheo10@gmail.com | bestscholars@hotmail.com</div>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -389,9 +389,6 @@
     </div>
 
     <script>
-        // Initialize EmailJS
-        emailjs.init('2IF9YEXEjvII-sAHH');
-        
         // Handle contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -401,14 +398,14 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            emailjs.send('service_17o75ai', 'template_m5ub7ph', {
-                name: this.name.value,
-                email: this.email.value,
+            emailjs.send('service_17o75sl', 'template_m5ub7ph', {
+                from_name: this.name.value,
+                from_email: this.email.value,
                 location: this.location.value,
                 budget: this.budget.value,
                 subject: this.subject.value,
                 message: this.message.value
-            })
+            }, 'SNYZJOXLEuO59os2P')
                 .then(function(response) {
                     alert('Message sent successfully!');
                     document.getElementById('contactForm').reset();
