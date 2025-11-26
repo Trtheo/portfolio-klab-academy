@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theophile Niyigaba - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-circle">T.N</div>
+                <span>Theophile</span>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <div class="menu-header">
+                    <div class="menu-logo">
+                        <div class="logo-circle">T.N</div>
+                        <span>Theophile</span>
+                    </div>
+                    <div class="menu-close" onclick="closeMenu()">&times;</div>
+                </div>
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#process" onclick="closeMenu()">Process</a></li>
+                <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+                <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hello, I'm<br>Theophile Niyigaba</h1>
+                    <p>I'm a Freelance <span class="highlight">UI/UX Designer</span> and <span class="highlight">Developer</span> 
+                        based in London, England. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.</p>
+                    <button class="cta-btn">Say Hello!</button>
+                </div>
+                <div class="hero-image">
+                    <img src="./me.png" alt="THeophile  Niyigaba" class="profile-photo">
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>15 Y.</h3>
+                    <p>Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>250+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>58</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./me.png" alt="Theophile Niyigaba" class="about-photo">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-x"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>I am Professional User Experience Designer</h2>
+                    <p>I design and develop services for customers specializing creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences.</p>
+                    <p>I design and develop services for customers specializing creating stylish, modern websites, web services.</p>
+                    <div class="about-buttons">
+                        <button class="projects-btn">My Projects</button>
+                        <button class="download-btn">📥 Download CV</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="process">
+            <div class="process-content">
+                <div class="process-text">
+                    <h2>Work Process</h2>
+                    <p>Driven by design and powered by code, I create digital interfaces that feel intuitive and perform seamlessly. Every layout, animation, and component is crafted with intention — merging usability with visual clarity.</p>
+                    <p>I blend clean design with efficient code to build engaging, user-friendly web experiences that stand out.</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-icon">📅</div>
+                        <h3>1. Research</h3>
+                        <p>Design meets function in every pixel, blending clarity with intuitive motion.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">📈</div>
+                        <h3>2. Analyze</h3>
+                        <p>Crafting clean, thoughtful interfaces where form flows seamlessly into function and clarity.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">✏️</div>
+                        <h3>3. Design</h3>
+                        <p>I design seamless digital experiences with precision, purpose, and a touch of elegance.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">💻</div>
+                        <h3>4. Launch</h3>
+                        <p>I craft digital products where thoughtful design meets performance-driven, responsive development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="portfolio-content">
+                <div class="portfolio-header">
+                    <h2>Portfolio</h2>
+                    <p>Here's a selection of my recent work, showcasing my skills in creating user-centric and visually appealing interfaces.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://via.placeholder.com/400x300/ff6b6b/ffffff?text=Project+1" alt="Project 1">
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UI-UX DESIGN</span>
+                            <h3>Product Admin Dashboard</h3>
+                            <p>I focus on crafting smooth, responsive interfaces that balance aesthetic appeal with practical functionality.</p>
+                            <a href="#" class="case-study-link" onclick="openModal('project1')">Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://via.placeholder.com/400x300/4ecdc4/ffffff?text=Project+2" alt="Project 2">
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UI-UX DESIGN</span>
+                            <h3>Product Admin Dashboard</h3>
+                            <p>Designed an intuitive dashboard for product management, emphasizing clarity and user efficiency.</p>
+                            <a href="#" class="case-study-link" onclick="openModal('project1')">Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://via.placeholder.com/400x300/45b7d1/ffffff?text=Project+3" alt="Project 3">
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UI-UX DESIGN</span>
+                            <h3>Product Admin Dashboard</h3>
+                            <p>Developed a modern admin panel with a focus on usability and seamless navigation for end users and so on.</p>
+                            <a href="#" class="case-study-link">Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://via.placeholder.com/400x300/f7b731/ffffff?text=Project+4" alt="Project 4">
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UI-UX DESIGN</span>
+                            <h3>E-commerce Platform</h3>
+                            <p>Created a comprehensive e-commerce solution with focus on user experience and conversion optimization.</p>
+                            <a href="#" class="case-study-link">Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://via.placeholder.com/400x300/5f27cd/ffffff?text=Project+5" alt="Project 5">
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UI-UX DESIGN</span>
+                            <h3>Mobile App Design</h3>
+                            <p>Designed a mobile application interface with emphasis on intuitive navigation and modern aesthetics.</p>
+                            <a href="#" class="case-study-link">Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://via.placeholder.com/400x300/00d2d3/ffffff?text=Project+6" alt="Project 6">
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UI-UX DESIGN</span>
+                            <h3>Web Application</h3>
+                            <p>Built a responsive web application with clean design principles and optimal user experience.</p>
+                            <a href="#" class="case-study-link">Case Study →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-more">
+                    <button class="more-project-btn">More Project</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Do you have a Project Idea?<br>Let's discuss your project!</h2>
+                <p>I'm always open to discussing new projects and creative ideas. Let's connect and build something amazing together.</p>
+                <button class="work-together-btn">Let's work Together →</button>
+            </div>
+        </section>
+
+        <section id="blog" class="blog">
+            <div class="blog-content">
+                <div class="blog-header">
+                    <h2>Blog</h2>
+                    <p>Check out my recent blog posts where I share insights on design, development, and the latest industry trends.</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-item">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/350x250/667eea/ffffff?text=Blog+1" alt="Blog Post 1">
+                        </div>
+                        <div class="blog-info">
+                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
+                            <h3>Designing Engaging User Interfaces for M...</h3>
+                        </div>
+                    </article>
+                    <article class="blog-item">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/350x250/f39c12/ffffff?text=Blog+2" alt="Blog Post 2">
+                        </div>
+                        <div class="blog-info">
+                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
+                            <h3>Tips for Effective Dashboard Layouts and...</h3>
+                        </div>
+                    </article>
+                    <article class="blog-item">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/350x250/e74c3c/ffffff?text=Blog+3" alt="Blog Post 3">
+                        </div>
+                        <div class="blog-info">
+                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
+                            <h3>How to Visualize Data for Better Product...</h3>
+                        </div>
+                    </article>
+                    <article class="blog-item">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/350x250/3498db/ffffff?text=Blog+4" alt="Blog Post 4">
+                        </div>
+                        <div class="blog-info">
+                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
+                            <h3>Responsive Design: Adapting to All Devic...</h3>
+                        </div>
+                    </article>
+                </div>
+                <div class="blog-pagination">
+                    <button class="pagination-btn prev-btn">&lt;</button>
+                    <span class="pagination-info">1 / 4</span>
+                    <button class="pagination-btn next-btn">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="services-content">
+                <div class="services-text">
+                    <h2>What I do?</h2>
+                    <p>I specialize in designing user experiences, crafting engaging interfaces, and building robust web applications that deliver value and usability.</p>
+                    <p>My approach combines creativity and technical expertise to deliver solutions that are both visually appealing and highly functional for users.</p>
+                    <button class="say-hello-btn">Say Hello!</button>
+                </div>
+                <div class="services-list">
+                    <div class="service-item">
+                        <h3>User Experience (UX)</h3>
+                        <p>I design intuitive and enjoyable experiences by understanding user needs, conducting research, and creating wireframes and prototypes that enhance usability.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>User Interface (UI)</h3>
+                        <p>I craft visually appealing and consistent interfaces, focusing on layout, color, and typography to ensure a seamless and engaging user journey.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Web Development</h3>
+                        <p>I build responsive and high-performance web applications using modern technologies and frameworks to create robust digital solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's discuss your Project</h2>
+                    <p>I'm available for freelance work. Drop me a line if you have a project you think I'd be a good fit for.</p>
+                    <p>I'm always open to discussing product design work or partnership opportunities.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <div class="contact-label">Address:</div>
+                                <div class="contact-value">Kigali , Rwanda</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <div class="contact-label">My Email:</div>
+                                <div class="contact-value">niyigabatheo10@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <div class="contact-label">Call Me Now:</div>
+                                <div class="contact-value">+250 788 932 662</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-row">
+                            <input type="text" placeholder="Name*" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" placeholder="Email*" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="Location*" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="Budget*" required>
+                            <input type="text" placeholder="Subject*" required>
+                        </div>
+                        <div class="form-row">
+                            <textarea placeholder="Message*" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit ➤</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-circle">T.N</div>
+                <span>Theophile N.</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#process">Process</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#blog">Blog</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="footer-copyright">
+                <p>Copyright © 2025 Theophile</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Developed with ❤️ by Theophile N.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <!-- Modal content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(projectId) {
+            const modal = document.getElementById('portfolioModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            // Sample content - replace with your actual project details
+            const projectData = {
+                project1: {
+                    title: 'Product Admin Dashboard',
+                    description: 'Complete case study of the admin dashboard project...',
+                    images: ['https://via.placeholder.com/800x600/ff6b6b/ffffff?text=Project+Details']
+                }
+            };
+            
+            const project = projectData[projectId] || projectData.project1;
+            modalBody.innerHTML = `
+                <h2>${project.title}</h2>
+                <img src="${project.images[0]}" alt="${project.title}" style="width:100%;margin:20px 0;">
+                <p>${project.description}</p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+        
+        // Close modal
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('portfolioModal').style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('portfolioModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const body = document.body;
+            
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = 'auto';
+            }
+        }
+        
+        function closeMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const body = document.body;
+            
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
