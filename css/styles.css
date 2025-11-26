@@ -182,9 +182,12 @@ body {
 .profile-photo {
     width: 400px;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 10px;
 }
 
 .stats {
@@ -241,10 +244,13 @@ body {
 .about-photo {
     width: 350px;
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    background: white;
+    padding: 10px;
 }
 
 .social-links {
@@ -318,7 +324,20 @@ body {
     transition: all 0.3s;
 }
 
+.hire-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
 .projects-btn:hover,
+.hire-btn:hover,
 .download-btn:hover {
     transform: translateY(-2px);
 }
@@ -737,11 +756,26 @@ body {
 }
 
 .services-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
     max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.services-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -778,17 +812,21 @@ body {
 }
 
 .services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
 }
 
 .service-item {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid #667eea;
 }
 
 .service-item:hover {
@@ -796,16 +834,128 @@ body {
 }
 
 .service-item h3 {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .service-item p {
-    font-size: 14px;
+    font-size: 12px;
     color: #666;
+    line-height: 1.4;
+}
+
+.skills {
+    padding: 100px 50px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.skills-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.skills-header h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.skills-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.6;
+}
+
+.skills-categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.skill-category h3 i {
+    color: #667eea;
+    font-size: 24px;
+}
+
+.skill-subcategory {
+    margin-bottom: 40px;
+}
+
+.skill-subcategory:last-child {
+    margin-bottom: 0;
+}
+
+.skill-subcategory h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+    display: inline-block;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item i {
+    font-size: 24px;
+    color: #667eea;
+    min-width: 24px;
+}
+
+.skill-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
 }
 
 .contact {
@@ -1358,5 +1508,84 @@ body {
     
     .pagination-info {
         font-size: 12px;
+    }
+    
+    .services {
+        padding: 40px 15px;
+    }
+    
+    .services-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .skills {
+        padding: 40px 15px;
+    }
+    
+    .skills-header h2 {
+        font-size: 28px;
+    }
+    
+    .skill-category {
+        padding: 25px 20px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .skill-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .services-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 20px 10px 40px;
+    }
+    
+    .about {
+        padding: 40px 10px;
+    }
+    
+    .process {
+        padding: 40px 10px;
+    }
+    
+    .portfolio {
+        padding: 40px 10px;
+    }
+    
+    .blog {
+        padding: 40px 10px;
+    }
+    
+    .services {
+        padding: 40px 10px;
+    }
+    
+    .skills {
+        padding: 40px 10px;
+    }
+    
+    .contact {
+        padding: 60px 10px 40px;
+    }
+    
+    .footer {
+        padding: 30px 10px 15px;
     }
 }
