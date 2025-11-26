@@ -41,9 +41,9 @@ A modern, responsive portfolio website built with HTML, CSS.
 ```
 portfolio-2025/
 ├── index.html          # Main HTML file
-├── styles.css          # CSS styles
-├── your-photo.jpg      # Profile photo (add your own)
-├── 1.png - 7.png      # Design reference images
+├── css/styles.css          # CSS styles
+├      # Profile photo (add your own)
+├──images/me.png      # Design reference images
 └── README.md          # This file
 ```
 

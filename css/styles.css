@@ -58,6 +58,10 @@ body {
     align-items: center;
 }
 
+.menu-header {
+    display: none;
+}
+
 .nav-menu a {
     text-decoration: none;
     color: #666;
