@@ -407,17 +407,64 @@
                 message: this.message.value
             }, 'SNYZJOXLEuO59os2P')
                 .then(function(response) {
-                    alert('Message sent successfully!');
+                    showSuccessModal();
                     document.getElementById('contactForm').reset();
                 }, function(error) {
                     console.error('EmailJS error details:', error);
-                    alert('Failed to send message. Error: ' + (error.text || error.message || 'Unknown error'));
+                    showErrorModal(error.text || error.message || 'Unknown error');
                 })
                 .finally(function() {
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                 });
         });
+        
+        function showSuccessModal() {
+            const modal = document.createElement('div');
+            modal.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="this.remove()">
+                    <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 400px; margin: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: modalSlideIn 0.3s ease;" onclick="event.stopPropagation()">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: white; font-size: 40px;"></i>
+                        </div>
+                        <h2 style="color: #333; margin: 0 0 15px 0; font-size: 24px;">Message Sent Successfully!</h2>
+                        <p style="color: #666; margin: 0 0 25px 0; line-height: 1.5;">Thank you for reaching out! I'll get back to you as soon as possible.</p>
+                        <button onclick="this.closest('div').remove()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">Close</button>
+                    </div>
+                </div>
+                <style>
+                    @keyframes modalSlideIn {
+                        from { transform: translateY(-50px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                </style>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.remove(), 5000);
+        }
+        
+        function showErrorModal(errorMsg) {
+            const modal = document.createElement('div');
+            modal.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="this.remove()">
+                    <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 400px; margin: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: modalSlideIn 0.3s ease;" onclick="event.stopPropagation()">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f44336, #d32f2f); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-times" style="color: white; font-size: 40px;"></i>
+                        </div>
+                        <h2 style="color: #333; margin: 0 0 15px 0; font-size: 24px;">Failed to Send Message</h2>
+                        <p style="color: #666; margin: 0 0 25px 0; line-height: 1.5;">${errorMsg}</p>
+                        <button onclick="this.closest('div').remove()" style="background: linear-gradient(135deg, #f44336, #d32f2f); color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">Try Again</button>
+                    </div>
+                </div>
+                <style>
+                    @keyframes modalSlideIn {
+                        from { transform: translateY(-50px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                </style>
+            `;
+            document.body.appendChild(modal);
+        }
         
         function openModal(projectId) {
             const modal = document.getElementById('portfolioModal');
