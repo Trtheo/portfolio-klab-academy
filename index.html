@@ -403,8 +403,8 @@
             
             const formData = new FormData(this);
             const templateParams = {
-                name: formData.get('name'),
-                email: formData.get('email'),
+                from_name: formData.get('name'),
+                from_email: formData.get('email'),
                 location: formData.get('location'),
                 budget: formData.get('budget'),
                 subject: formData.get('subject'),
@@ -416,8 +416,8 @@
                     alert('Message sent successfully!');
                     document.getElementById('contactForm').reset();
                 }, function(error) {
-                    alert('Failed to send message. Please try again.');
-                    console.error('EmailJS error:', error);
+                    console.error('EmailJS error details:', error);
+                    alert('Failed to send message. Error: ' + (error.text || error.message || 'Unknown error'));
                 })
                 .finally(function() {
                     submitBtn.textContent = originalText;
