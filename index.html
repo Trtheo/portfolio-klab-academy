@@ -11,16 +11,17 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <div class="logo-circle">T.N</div>
-                <span>Theophile</span>
-            </div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu">
+            <div class="navbar-container">
+                <div class="logo">
+                    <div class="logo-circle">T.N</div>
+                    <span>Theophile</span>
+                </div>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu">
                 <div class="menu-header">
                     <div class="menu-logo">
                         <div class="logo-circle">T.N</div>
@@ -36,7 +37,8 @@
                 <li><a href="#services" onclick="closeMenu()">Services</a></li>
                 <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-            </ul>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -133,57 +135,57 @@
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="./images/admin-dashboard.png" alt="Admin Dashboard">
+                            <img src="./images/admin product list.png" alt="Admin Dashboard">
                         </div>
                         <div class="portfolio-info">
                             <span class="portfolio-category">UI-UX DESIGN</span>
                             <h3>Product Admin Dashboard</h3>
                             <p>I focus on crafting smooth, responsive interfaces that balance aesthetic appeal with practical functionality.</p>
-                            <a href="#" class="case-study-link" onclick="openModal('project1')">Case Study →</a>
+                            <a href="https://product-list-admin.vercel.app/" class="case-study-link" target="_blank">View Project →</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="./images/admin-2.png" alt="Admin Dashboard 2">
+                            <img src="./images for portfolio/parentingTips.png" alt="Family roots">
                         </div>
                         <div class="portfolio-info">
                             <span class="portfolio-category">FULL STACK</span>
-                            <h3>Admin Dashboard v2</h3>
-                            <p>Advanced dashboard with real-time analytics, user management, and responsive design for better performance.</p>
-                            <a href="#" class="case-study-link" onclick="openModal('project2')">Case Study →</a>
+                            <h3>Family Roots</h3>
+                            <p>Family Roots is dedicated to supporting parents, caregivers, and educators by providing trusted resources to nurture healthy, happy children. Join us as we explore each stage of child development together.</p>
+                            <a href="https://childrenlifestyle.vercel.app/" target="_blank" class="case-study-link">Case Study →</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="./images/ecommerce.png" alt="E-commerce Platform">
+                            <img src="./images for portfolio/TChatBot.png" alt="TChatBot Project">
                         </div>
                         <div class="portfolio-info">
-                            <span class="portfolio-category">E-COMMERCE</span>
-                            <h3>Online Shopping Platform</h3>
-                            <p>Complete e-commerce solution with payment integration, inventory management, and customer portal.</p>
-                            <a href="#" class="case-study-link">Case Study →</a>
+                            <span class="portfolio-category">Chatbot</span>
+                            <h3>TChatBot Platform</h3>
+                            <p>Complete ChatBot instantly helps people to solve some issues using AI-powered responses.</p>
+                            <a href="https://trtheo.github.io/chatbot/" target="_blank" class="case-study-link">Case Study →</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="./images/mobile-app.png" alt="Mobile App">
+                            <img src="./images for portfolio/taskManager.png" alt="Task Management System">
                         </div>
                         <div class="portfolio-info">
-                            <span class="portfolio-category">MOBILE APP</span>
-                            <h3>Task Management App</h3>
-                            <p>Cross-platform mobile application for task management with offline sync and team collaboration features.</p>
-                            <a href="#" class="case-study-link">Case Study →</a>
+                            <span class="portfolio-category">Web-Task Managment</span>
+                            <h3>Task Management System</h3>
+                            <p>Cross-platform Web application for task management with offline sync and team collaboration features.</p>
+                            <a href="https://goodtaskmanager.vercel.app/" target="_blank" class="case-study-link">Case Study →</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <img src="./images/web-app.png" alt="Web Application">
+                            <img src="./images for portfolio/loginSEcure.png" alt="Web Application">
                         </div>
                         <div class="portfolio-info">
                             <span class="portfolio-category">WEB APP</span>
-                            <h3>Business Management System</h3>
-                            <p>Comprehensive web application for business operations, CRM, and reporting with modern tech stack.</p>
-                            <a href="#" class="case-study-link">Case Study →</a>
+                            <h3>Secure Authentication System</h3>
+                            <p>Developed a Python-Django authentication system with Register and Login verification and adaptive risk assessment security module integration.</p>
+                            <a href="https://regiser-login-auth-django-driopq.onrender.com/" class="case-study-link">Case Study →</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
@@ -218,48 +220,13 @@
                     <h2>Blog</h2>
                     <p>Check out my recent blog posts where I share insights on design, development, and the latest industry trends.</p>
                 </div>
-                <div class="blog-grid">
-                    <article class="blog-item">
-                        <div class="blog-image">
-                            <img src="./images/admin-dashboard.png" alt="Blog Post 1">
-                        </div>
-                        <div class="blog-info">
-                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
-                            <h3>Designing Engaging User Interfaces for M...</h3>
-                        </div>
-                    </article>
-                    <article class="blog-item">
-                        <div class="blog-image">
-                            <img src="./images/ecommerce.png" alt="Blog Post 2">
-                        </div>
-                        <div class="blog-info">
-                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
-                            <h3>Tips for Effective Dashboard Layouts and...</h3>
-                        </div>
-                    </article>
-                    <article class="blog-item">
-                        <div class="blog-image">
-                            <img src="./images/mobile-app.png" alt="Blog Post 3">
-                        </div>
-                        <div class="blog-info">
-                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
-                            <h3>How to Visualize Data for Better Product...</h3>
-                        </div>
-                    </article>
-                    <article class="blog-item">
-                        <div class="blog-image">
-                            <img src="./images/web-app.png" alt="Blog Post 4">
-                        </div>
-                        <div class="blog-info">
-                            <div class="blog-meta">22 Oct, 2020 / 246 Comments</div>
-                            <h3>Responsive Design: Adapting to All Devic...</h3>
-                        </div>
-                    </article>
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Dynamic content will be loaded here -->
                 </div>
                 <div class="blog-pagination">
-                    <button class="pagination-btn prev-btn">&lt;</button>
-                    <span class="pagination-info">1 / 4</span>
-                    <button class="pagination-btn next-btn">&gt;</button>
+                    <button class="pagination-btn prev-btn" id="prevBtn">&lt;</button>
+                    <span class="pagination-info" id="paginationInfo">1 / 1</span>
+                    <button class="pagination-btn next-btn" id="nextBtn">&gt;</button>
                 </div>
             </div>
         </section>
@@ -549,15 +516,7 @@
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div id="portfolioModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="modalBody">
-                <!-- Modal content will be loaded here -->
-            </div>
-        </div>
-    </div>
+
 
     <script>
         // Handle contact form submission
@@ -707,64 +666,22 @@
             document.body.appendChild(modal);
         }
         
-        function openModal(projectId) {
-            const modal = document.getElementById('portfolioModal');
-            const modalBody = document.getElementById('modalBody');
-            
-            // Sample content - replace with your actual project details
-            const projectData = {
-                project1: {
-                    title: 'Product Admin Dashboard',
-                    description: 'Complete case study of the admin dashboard project...',
-                    images: ['https://via.placeholder.com/800x600/ff6b6b/ffffff?text=Project+Details']
-                }
-            };
-            
-            const project = projectData[projectId] || projectData.project1;
-            modalBody.innerHTML = `
-                <h2>${project.title}</h2>
-                <img src="${project.images[0]}" alt="${project.title}" style="width:100%;margin:20px 0;">
-                <p>${project.description}</p>
-            `;
-            
-            modal.style.display = 'block';
-        }
-        
-        // Close modal
-        document.querySelector('.close').onclick = function() {
-            document.getElementById('portfolioModal').style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            const modal = document.getElementById('portfolioModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
+
         
         function toggleMenu() {
             const navMenu = document.querySelector('.nav-menu');
             const menuToggle = document.querySelector('.menu-toggle');
-            const body = document.body;
             
             navMenu.classList.toggle('active');
             menuToggle.classList.toggle('active');
-            
-            if (navMenu.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = 'auto';
-            }
         }
         
         function closeMenu() {
             const navMenu = document.querySelector('.nav-menu');
             const menuToggle = document.querySelector('.menu-toggle');
-            const body = document.body;
             
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
-            body.style.overflow = 'auto';
         }
         
         // Active navigation highlighting
@@ -801,6 +718,100 @@
             link.download = 'Theophile_Niyigaba_CV.pdf';
             link.click();
         }
+        
+        // Blog data and functionality
+        const blogPosts = [
+            {
+                image: './images/admin-dashboard.png',
+                date: '22 Oct, 2024',
+                comments: 246,
+                title: 'Designing Engaging User Interfaces for Modern Applications',
+                url: 'https://www.ironhack.com/gb/blog/how-to-create-engaging-user-interfaces-tips-and-tricks-for-ux-ui-designers'
+            },
+            {
+                image: './images/ecommerce.png',
+                date: '15 Oct, 2024',
+                comments: 189,
+                title: 'Tips for Effective Dashboard Layouts and User Experience',
+                url: 'https://www.rib-software.com/en/blogs/bi-dashboard-design-principles-best-practices'
+            },
+            {
+                image: './images/mobile-app.png',
+                date: '08 Oct, 2024',
+                comments: 156,
+                title: 'How to Visualize Data for Better Product Decisions',
+                url: '#'
+            },
+            {
+                image: './images/web-app.png',
+                date: '01 Oct, 2024',
+                comments: 203,
+                title: 'Responsive Design: Adapting to All Device Types',
+                url: 'https://icetulip.com/responsive-design-why-your-website-needs-to-adapt-to-all-devices/'
+            },
+            {
+                image: './images/admin-2.png',
+                date: '25 Sep, 2024',
+                comments: 178,
+                title: 'Building Scalable Web Applications with Modern Frameworks',
+                url: '#'
+            },
+            {
+                image: './images/admin product list.png',
+                date: '18 Sep, 2024',
+                comments: 134,
+                title: 'The Future of Web Development: Trends to Watch',
+                url: '#'
+            }
+        ];
+        
+        let currentPage = 1;
+        const postsPerPage = 4;
+        const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+        
+        function renderBlogPosts() {
+            const blogGrid = document.getElementById('blogGrid');
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const currentPosts = blogPosts.slice(startIndex, endIndex);
+            
+            blogGrid.innerHTML = currentPosts.map(post => `
+                <article class="blog-item">
+                    <a href="${post.url}" target="_blank">
+                        <div class="blog-image">
+                            <img src="${post.image}" alt="${post.title}">
+                        </div>
+                        <div class="blog-info">
+                            <div class="blog-meta">${post.date} / ${post.comments} Comments</div>
+                            <h3>${post.title}</h3>
+                        </div>
+                    </a>
+                </article>
+            `).join('');
+            
+            document.getElementById('paginationInfo').textContent = `${currentPage} / ${totalPages}`;
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+        
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderBlogPosts();
+            }
+        });
+        
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderBlogPosts();
+            }
+        });
+        
+        // Initialize blog on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBlogPosts();
+        });
     </script>
 </body>
 </html>
