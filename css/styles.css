@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -234,6 +239,156 @@ body {
 .scroll-to-top:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.dark-mode-toggle {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 25px;
+    background: #ddd;
+    border-radius: 25px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.toggle-slider {
+    width: 21px;
+    height: 21px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dark-mode .toggle-switch {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dark-mode .toggle-slider {
+    transform: translateX(25px);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .navbar {
+    background: rgba(26, 26, 46, 0.95) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .nav-menu a {
+    color: #b0b0b0 !important;
+}
+
+.dark-mode .nav-menu a:hover,
+.dark-mode .nav-menu a.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.dark-mode .logo {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .hero-text h1,
+.dark-mode .about-text h2,
+.dark-mode .process-text h2,
+.dark-mode .portfolio-header h2,
+.dark-mode .blog-header h2,
+.dark-mode .services-header h2,
+.dark-mode .skills-header h2,
+.dark-mode .certificates-header h2,
+.dark-mode .experience-header h2 {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .hero-text p,
+.dark-mode .about-text p,
+.dark-mode .process-text p,
+.dark-mode .portfolio-header p,
+.dark-mode .blog-header p,
+.dark-mode .services-header p,
+.dark-mode .skills-header p,
+.dark-mode .certificates-header p,
+.dark-mode .experience-header p {
+    color: #b0b0b0 !important;
+}
+
+.dark-mode .stat-item,
+.dark-mode .step,
+.dark-mode .portfolio-item,
+.dark-mode .blog-item,
+.dark-mode .service-item,
+.dark-mode .skill-category,
+.dark-mode .skill-item,
+.dark-mode .certificate-item,
+.dark-mode .timeline-item,
+.dark-mode .education-item {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #e0e0e0 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-mode .stat-label,
+.dark-mode .step h3,
+.dark-mode .step p,
+.dark-mode .portfolio-info h3,
+.dark-mode .portfolio-info p,
+.dark-mode .blog-info h3,
+.dark-mode .service-item h3,
+.dark-mode .service-item p,
+.dark-mode .skill-item span,
+.dark-mode .certificate-info h3,
+.dark-mode .timeline-content h3,
+.dark-mode .timeline-content p,
+.dark-mode .education-content h3 {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .about,
+.dark-mode .portfolio,
+.dark-mode .services,
+.dark-mode .certificates {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .process,
+.dark-mode .blog,
+.dark-mode .skills,
+.dark-mode .experience {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+.dark-mode .contact-content {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .contact-info h2,
+.dark-mode .contact-info p,
+.dark-mode .contact-value {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .form-row input,
+.dark-mode .form-row textarea {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .form-row input::placeholder,
+.dark-mode .form-row textarea::placeholder {
+    color: #888 !important;
 }
 
 .hero-image {
@@ -1686,7 +1841,7 @@ body {
         left: 0;
         right: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         padding: 0 25px;
     }
@@ -1714,7 +1869,7 @@ body {
     }
     
     .menu-close {
-        font-size: 30px;
+        font-size: 24px;
         color: #333;
         cursor: pointer;
         width: 40px;
@@ -1724,6 +1879,8 @@ body {
         justify-content: center;
         border-radius: 50%;
         transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     .menu-close:hover {
@@ -1757,6 +1914,36 @@ body {
     .nav-menu a.active {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
+    }
+    
+    .menu-header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+    }
+    
+    .toggle-slider {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
+    }
+    
+    .dark-mode .toggle-slider {
+        transform: translateX(20px);
+    }
+    
+    .mobile-toggle {
+        margin-left: 0;
+    }
+    
+    .dark-mode-toggle {
+        display: none;
     }
     
     .logo {
@@ -1991,6 +2178,28 @@ body {
         width: 35px;
         height: 35px;
         font-size: 14px;
+    }
+    
+    .dark-mode .nav-menu {
+        background: rgba(15, 15, 25, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    .dark-mode .menu-logo {
+        color: #e0e0e0 !important;
+    }
+    
+    .dark-mode .menu-close {
+        color: #333 !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+    }
+    
+    .dark-mode .menu-close:hover {
+        color: #667eea !important;
+    }
+    
+    .mobile-toggle {
+        display: block !important;
     }
     
 
