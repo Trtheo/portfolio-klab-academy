@@ -36,6 +36,8 @@
                 <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
                 <li><a href="#services" onclick="closeMenu()">Services</a></li>
                 <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#certificates" onclick="closeMenu()">Certificates</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
                 </ul>
             </div>
@@ -49,7 +51,7 @@
                     <h1>Hello, I'm<br>Theophile Niyigaba</h1>
                     <p>I'm a Freelance <span class="highlight">UI/UX Designer</span> and <span class="highlight">Software Developer</span> 
                         based in Kigali, Rwanda. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.</p>
-                    <a href="https://wa.me/250788932662?text=Hello%20Theophile!%20I'm%20interested%20in%20your%20services." target="_blank"><button class="cta-btn">Say Hello!</button></a>
+                    <a href="https://wa.me/250788932662?text=Hello%20Theophile!%20I'm%20interested%20in%20your%20services." target="_blank"><button class="whatsapp-btn"><i class="fab fa-whatsapp"></i></button></a>
                 </div>
                 <div class="hero-image">
                     <img src="./images/MyPhoto.jpeg" alt="Theophile  Niyigaba" class="profile-photo">
@@ -251,44 +253,40 @@
 
         <section id="blog" class="blog">
             <div class="blog-content">
-                <!-- Blog List View -->
-                <div id="blogListView">
-                    <div class="blog-header">
-                        <h2>Blog</h2>
-                        <p>Check out my recent blog posts where I share insights on design, development, and the latest industry trends.</p>
-                    </div>
-                    <div class="blog-grid" id="blogGrid">
-                        <!-- Dynamic content will be loaded here -->
-                    </div>
-                    <div class="blog-pagination">
-                        <button class="pagination-btn prev-btn" id="prevBtn">&lt;</button>
-                        <span class="pagination-info" id="paginationInfo">1 / 1</span>
-                        <button class="pagination-btn next-btn" id="nextBtn">&gt;</button>
-                    </div>
+                <div class="blog-header">
+                    <h2>Blog</h2>
+                    <p>Check out my recent blog posts where I share insights on design, development, and the latest industry trends.</p>
                 </div>
-                
-                <!-- Single Blog Post View -->
-                <div id="blogPostView" style="display: none;">
-                    <div class="blog-post-header">
-                        <button class="back-to-blog" onclick="showBlogList()">&larr; Back to Blog</button>
-                    </div>
-                    <div class="blog-post-content">
-                        <div class="blog-post-image">
-                            <img id="postImage" src="" alt="">
-                        </div>
-                        <div class="blog-post-info">
-                            <div class="blog-post-meta" id="postMeta"></div>
-                            <h1 id="postTitle"></h1>
-                            <div class="blog-post-text" id="postContent"></div>
-                            <div class="blog-post-tags" id="postTags"></div>
-                            <div class="blog-post-footer">
-                                <button class="back-to-blog" onclick="showBlogList()">&larr; Back to Blog</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+                <div class="blog-pagination">
+                    <button class="pagination-btn prev-btn" id="prevBtn">&lt;</button>
+                    <span class="pagination-info" id="paginationInfo">1 / 1</span>
+                    <button class="pagination-btn next-btn" id="nextBtn">&gt;</button>
                 </div>
             </div>
         </section>
+
+        <!-- Blog Modal -->
+        <div id="blogModal" class="blog-modal">
+            <div class="blog-modal-content">
+                <div class="blog-modal-header">
+                    <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
+                </div>
+                <div class="blog-modal-body">
+                    <div class="blog-modal-image">
+                        <img id="modalBlogImage" src="" alt="">
+                    </div>
+                    <div class="blog-modal-info">
+                        <div class="blog-modal-meta" id="modalBlogMeta"></div>
+                        <h1 id="modalBlogTitle"></h1>
+                        <div class="blog-modal-content-text" id="modalBlogContent"></div>
+                        <div class="blog-modal-tags" id="modalBlogTags"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section id="services" class="services">
             <div class="services-content">
@@ -472,6 +470,148 @@
             </div>
         </section>
 
+        <section id="certificates" class="certificates">
+            <div class="certificates-content">
+                <div class="certificates-header">
+                    <h2>Certificates & Awards</h2>
+                    <p>Filter by category to explore my verified credentials.</p>
+                </div>
+                
+                <div class="certificate-filters">
+                    <button class="filter-btn active" onclick="filterCertificates('all')">All</button>
+                    <button class="filter-btn" onclick="filterCertificates('web')">Web Development</button>
+                    <button class="filter-btn" onclick="filterCertificates('networking')">Networking</button>
+                    <button class="filter-btn" onclick="filterCertificates('security')">Cybersecurity</button>
+                    <button class="filter-btn" onclick="filterCertificates('microsoft')">Microsoft</button>
+                    <button class="filter-btn" onclick="filterCertificates('awards')">Awards</button>
+                </div>
+                
+                <div class="certificates-grid" id="certificatesGrid">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="experience-content">
+                <div class="experience-header">
+                    <h2>Experience & Professional Journey</h2>
+                    <p>My career path has been a continuous evolution through diverse technical landscapes, blending structured software engineering roles with innovative R&D initiatives. Each position has contributed to my holistic understanding of full-cycle development while maintaining a security-first approach in every solution.</p>
+                </div>
+                
+                <div class="education-section">
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-content">
+                            <h3>BSc.in Computer and Software Engineering</h3>
+                            <h4>University of Rwanda (UR) • 2022 - 2026</h4>
+                            <div class="education-details">
+                                <div class="gpa">GPA: 3.7/4.0</div>
+                                <div class="specializations">
+                                    <strong>Specializations:</strong>
+                                    <ul>
+                                        <li>Network Engineering</li>
+                                        <li>System Administration</li>
+                                        <li>Software Engineering</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-timeline">
+                    <div class="timeline-item current">
+                        <div class="timeline-date">May 2025 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Software Engineer (Professional Internship)</h3>
+                            <h4>Rwanda Basic Education Board (REB) • Kigali, Rwanda</h4>
+                            <p>Working on REB-ICTE-MIS, a comprehensive management information system currently in production use. Contributing to educational technology infrastructure that serves Rwanda's basic education sector.</p>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">Tailwind CSS</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2025 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Software Engineering Fellow</h3>
+                            <h4>Jackal Tech Ltd • Kigali, Rwanda</h4>
+                            <p>Developed Jackal Typing Master system - a comprehensive typing practice platform with performance tracking, educational features, and competitive leaderboards. The system provides structured environments for improving typing speed and accuracy.</p>
+                            <div class="project-highlights">
+                                <ul>
+                                    <li>Performance tracking with WPM, error rate, and accuracy metrics</li>
+                                    <li>Educational platform suitable for schools and training centers</li>
+                                    <li>Competitive leaderboard system for user motivation</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2025 - Apr 2025</div>
+                        <div class="timeline-content">
+                            <h3>Web Development Intern (Remote)</h3>
+                            <h4>CodeAlpha • Mumbai, India</h4>
+                            <p>Assisted in building and maintaining websites and web applications using modern frontend and backend technologies. Worked closely with developers to design user-friendly interfaces, write clean code, and learn industry best practices.</p>
+                            <div class="project-highlights">
+                                <ul>
+                                    <li>Developed responsive, interactive, and secure web solutions</li>
+                                    <li>Gained hands-on experience with testing, debugging, and deployment</li>
+                                    <li>Collaborated using modern web technologies and collaboration tools</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2025 - Apr 2025</div>
+                        <div class="timeline-content">
+                            <h3>Fullstack Developer Intern (Remote)</h3>
+                            <h4>TechnoHacks Solution Pvt Ltd • Maharashtra, India</h4>
+                            <p>Focused on full-stack development with emphasis on API integration and database management. Received mentorship and code reviews to enhance coding and problem-solving skills.</p>
+                            <div class="project-highlights">
+                                <ul>
+                                    <li>Development & debugging of applications under senior developer guidance</li>
+                                    <li>RESTful API integration connecting front-end and back-end components</li>
+                                    <li>Database management experience with multiple database systems</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">PHP Laravel</span>
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">Bootstrap</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Django</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="contact">
             <div class="contact-content">
                 <div class="contact-info">
@@ -521,18 +661,10 @@
                             <input type="email" name="email" placeholder="Email*">
                             <div id="emailError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
                         </div>
-                        <div class="form-row" style="flex-direction: column;">
-                            <input type="text" name="location" placeholder="Location*">
-                            <div id="locationError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
-                        </div>
-                        <div class="form-row" style="flex-direction: column;">
-                            <input type="tel" name="phone" placeholder="Phone Number*"  inputmode="numeric" maxlength="10"  oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                            <div id="phoneError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
-                        </div>
                         <div class="form-row">
                             <div style="flex: 1; display: flex; flex-direction: column;">
-                                <input type="text" name="budget" placeholder="Budget*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                <div id="budgetError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
+                                <input type="tel" name="phone" placeholder="Phone Number*"  inputmode="numeric" maxlength="10"  oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                <div id="phoneError" style="color: #f44336; font-size: 12px; margin-top: 5px; display: none;"></div>
                             </div>
                             <div style="flex: 1; display: flex; flex-direction: column;">
                                 <input type="text" name="subject" placeholder="Subject*">
@@ -564,6 +696,8 @@
                 <a href="#blog">Blog</a>
                 <a href="#services">Services</a>
                 <a href="#skills">Skills</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </nav>
             <div class="footer-copyright">
@@ -575,7 +709,10 @@
         </div>
     </footer>
 
-
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script>
         // Handle contact form submission
@@ -583,7 +720,7 @@
             e.preventDefault();
             
             // Clear previous errors
-            const errorIds = ['nameError', 'emailError', 'locationError', 'phoneError', 'budgetError', 'subjectError', 'messageError'];
+            const errorIds = ['nameError', 'emailError', 'phoneError', 'subjectError', 'messageError'];
             errorIds.forEach(id => {
                 document.getElementById(id).style.display = 'none';
             });
@@ -609,13 +746,6 @@
                 hasError = true;
             }
             
-            // Validate location
-            if (!this.location.value.trim()) {
-                document.getElementById('locationError').textContent = 'Location is required';
-                document.getElementById('locationError').style.display = 'block';
-                hasError = true;
-            }
-            
             // Validate phone number
             const phoneNumber = this.phone.value;
             if (!phoneNumber.trim()) {
@@ -625,13 +755,6 @@
             } else if (phoneNumber.length !== 10 || !/^[0-9]{10}$/.test(phoneNumber)) {
                 document.getElementById('phoneError').textContent = 'Phone number must be exactly 10 digits';
                 document.getElementById('phoneError').style.display = 'block';
-                hasError = true;
-            }
-            
-            // Validate budget
-            if (!this.budget.value.trim()) {
-                document.getElementById('budgetError').textContent = 'Budget is required';
-                document.getElementById('budgetError').style.display = 'block';
                 hasError = true;
             }
             
@@ -659,9 +782,7 @@
             emailjs.send('service_17o75sl', 'template_m5ub7ph', {
                 from_name: this.name.value,
                 from_email: this.email.value,
-                location: this.location.value,
                 phone: this.phone.value,
-                budget: this.budget.value,
                 subject: this.subject.value,
                 message: this.message.value
             }, 'SNYZJOXLEuO59os2P')
@@ -954,7 +1075,7 @@
             const currentPosts = blogPosts.slice(startIndex, endIndex);
             
             blogGrid.innerHTML = currentPosts.map(post => `
-                <article class="blog-item" onclick="showBlogPost(${post.id})">
+                <article class="blog-item" onclick="openBlogModal(${post.id})">
                     <div class="blog-image">
                         <img src="${post.image}" alt="${post.title}">
                     </div>
@@ -971,33 +1092,42 @@
             document.getElementById('nextBtn').disabled = currentPage === totalPages;
         }
         
-        function showBlogPost(postId) {
+        function openBlogModal(postId) {
             const post = blogPosts.find(p => p.id === postId);
             if (!post) return;
             
-            document.getElementById('postImage').src = post.image;
-            document.getElementById('postImage').alt = post.title;
-            document.getElementById('postMeta').textContent = `${post.date} / ${post.comments} Comments`;
-            document.getElementById('postTitle').textContent = post.title;
-            document.getElementById('postContent').innerHTML = post.content;
-            document.getElementById('postTags').innerHTML = post.tags.map(tag => 
+            document.getElementById('modalBlogImage').src = post.image;
+            document.getElementById('modalBlogImage').alt = post.title;
+            document.getElementById('modalBlogMeta').textContent = `${post.date} / ${post.comments} Comments`;
+            document.getElementById('modalBlogTitle').textContent = post.title;
+            document.getElementById('modalBlogContent').innerHTML = post.content;
+            document.getElementById('modalBlogTags').innerHTML = post.tags.map(tag => 
                 `<span class="blog-tag">${tag}</span>`
             ).join('');
             
-            document.getElementById('blogListView').style.display = 'none';
-            document.getElementById('blogPostView').style.display = 'block';
+            document.getElementById('blogModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
         
-        function showBlogList() {
-            document.getElementById('blogPostView').style.display = 'none';
-            document.getElementById('blogListView').style.display = 'block';
-            
-            // Scroll to blog section
-            document.getElementById('blog').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
+        function closeBlogModal() {
+            document.getElementById('blogModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('blogModal');
+            if (e.target === modal) {
+                closeBlogModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBlogModal();
+            }
+        });
         
         document.getElementById('prevBtn').addEventListener('click', () => {
             if (currentPage > 1) {
@@ -1016,7 +1146,252 @@
         // Initialize blog on page load
         document.addEventListener('DOMContentLoaded', () => {
             renderBlogPosts();
+            renderCertificates();
         });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Certificates data and functionality
+        const certificates = [
+            {
+                id: 1,
+                title: 'Android Developer',
+                issuer: 'Udacity',
+                date: '2024',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 2,
+                title: 'Career Essentials in Sustainable Tech',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 3,
+                title: 'CCNA (SWITCHING,ROUTING,WIRELESS)SRWE',
+                issuer: 'CISCO Networking Academy',
+                date: '2025',
+                category: 'networking',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 4,
+                title: 'IT Essentials',
+                issuer: 'CISCO Networking Academy',
+                date: '2022',
+                category: 'networking',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 5,
+                title: 'Introduction to Cybersecurity',
+                issuer: 'CISCO Networking Academy',
+                date: '2025',
+                category: 'security',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 6,
+                title: 'Data Science & Analytics',
+                issuer: 'HP Foundation & HP Life',
+                date: '2024',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 7,
+                title: 'Digital Transformation Essentials',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 8,
+                title: 'Effective Presentations',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 9,
+                title: 'Entrepreneurship and Start up Fundamentals',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 10,
+                title: 'Frontend Developer (ReactJS)',
+                issuer: 'HackerRank',
+                date: '2025',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 11,
+                title: 'Generative AI Fundamentals',
+                issuer: 'Microsoft & KEPSA',
+                date: '2025',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 12,
+                title: 'HTML & CSS Certificate',
+                issuer: 'IHUZO Academy & Talent4Startups',
+                date: '2024',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 13,
+                title: 'Computer Hardware and Software Troubleshooting',
+                issuer: 'CISCO Networking Academy',
+                date: '2022',
+                category: 'networking',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 14,
+                title: 'Java Programming',
+                issuer: 'IHUZO Academy & Talent4Startups',
+                date: '2024',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 15,
+                title: 'Modern JavaScript Frameworks',
+                issuer: 'IHUZO Academy & Talent4Startups',
+                date: '2024',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 16,
+                title: 'Server Side Development With NodeJS',
+                issuer: 'Microsoft & KEPSA',
+                date: '2025',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 17,
+                title: 'Social Media Marketing',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 18,
+                title: 'Software Engineer',
+                issuer: 'HackerRank',
+                date: '2025',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 19,
+                title: 'SQL Advanced Certificate',
+                issuer: 'HackerRank',
+                date: '2025',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 20,
+                title: 'System Administrator Certificate',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 21,
+                title: 'UX Design & Design Thinking',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 22,
+                title: 'Generative AI Fundamentals',
+                issuer: 'UNITAR & Microsoft',
+                date: '2024',
+                category: 'microsoft',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 23,
+                title: 'Web Development',
+                issuer: 'Code Alpha',
+                date: '2025',
+                category: 'web',
+                image: './images/cert-placeholder.jpg'
+            },
+            {
+                id: 24,
+                title: 'WAVUMBUZI ENTREPRENEURSHIP CHALLENGE RWANDA',
+                issuer: 'Ministry of Education',
+                date: '2021',
+                category: 'awards',
+                image: './images/cert-placeholder.jpg'
+            }
+        ];
+        
+        let currentFilter = 'all';
+        
+        function renderCertificates() {
+            const grid = document.getElementById('certificatesGrid');
+            const filtered = currentFilter === 'all' ? certificates : certificates.filter(cert => cert.category === currentFilter);
+            
+            grid.innerHTML = filtered.map(cert => `
+                <div class="certificate-item">
+                    <div class="certificate-info">
+                        <h3>${cert.title}</h3>
+                        <p class="certificate-issuer">${cert.issuer}</p>
+                        <p class="certificate-date">${cert.date}</p>
+                        <a href="./certificates/${cert.pdf}" target="_blank" class="read-btn">
+                            <i class="fas fa-file-pdf"></i> READ
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function filterCertificates(category) {
+            currentFilter = category;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            renderCertificates();
+        }
     </script>
 </body>
 </html>
