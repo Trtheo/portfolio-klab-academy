@@ -216,17 +216,41 @@
 
         <section id="blog" class="blog">
             <div class="blog-content">
-                <div class="blog-header">
-                    <h2>Blog</h2>
-                    <p>Check out my recent blog posts where I share insights on design, development, and the latest industry trends.</p>
+                <!-- Blog List View -->
+                <div id="blogListView">
+                    <div class="blog-header">
+                        <h2>Blog</h2>
+                        <p>Check out my recent blog posts where I share insights on design, development, and the latest industry trends.</p>
+                    </div>
+                    <div class="blog-grid" id="blogGrid">
+                        <!-- Dynamic content will be loaded here -->
+                    </div>
+                    <div class="blog-pagination">
+                        <button class="pagination-btn prev-btn" id="prevBtn">&lt;</button>
+                        <span class="pagination-info" id="paginationInfo">1 / 1</span>
+                        <button class="pagination-btn next-btn" id="nextBtn">&gt;</button>
+                    </div>
                 </div>
-                <div class="blog-grid" id="blogGrid">
-                    <!-- Dynamic content will be loaded here -->
-                </div>
-                <div class="blog-pagination">
-                    <button class="pagination-btn prev-btn" id="prevBtn">&lt;</button>
-                    <span class="pagination-info" id="paginationInfo">1 / 1</span>
-                    <button class="pagination-btn next-btn" id="nextBtn">&gt;</button>
+                
+                <!-- Single Blog Post View -->
+                <div id="blogPostView" style="display: none;">
+                    <div class="blog-post-header">
+                        <button class="back-to-blog" onclick="showBlogList()">&larr; Back to Blog</button>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-image">
+                            <img id="postImage" src="" alt="">
+                        </div>
+                        <div class="blog-post-info">
+                            <div class="blog-post-meta" id="postMeta"></div>
+                            <h1 id="postTitle"></h1>
+                            <div class="blog-post-text" id="postContent"></div>
+                            <div class="blog-post-tags" id="postTags"></div>
+                            <div class="blog-post-footer">
+                                <button class="back-to-blog" onclick="showBlogList()">&larr; Back to Blog</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -722,46 +746,165 @@
         // Blog data and functionality
         const blogPosts = [
             {
+                id: 1,
                 image: './images/admin-dashboard.png',
                 date: '22 Oct, 2024',
                 comments: 246,
                 title: 'Designing Engaging User Interfaces for Modern Applications',
-                url: 'https://www.ironhack.com/gb/blog/how-to-create-engaging-user-interfaces-tips-and-tricks-for-ux-ui-designers'
+                content: `
+                    <p>Creating engaging user interfaces is both an art and a science. In today's digital landscape, users expect intuitive, beautiful, and functional designs that make their interactions seamless and enjoyable.</p>
+                    
+                    <h3>Understanding User Psychology</h3>
+                    <p>The foundation of great UI design lies in understanding how users think and behave. Users scan rather than read, they want immediate feedback, and they prefer familiar patterns over innovative but confusing layouts.</p>
+                    
+                    <h3>Key Principles for Modern UI Design</h3>
+                    <ul>
+                        <li><strong>Clarity:</strong> Every element should have a clear purpose and be easily understood</li>
+                        <li><strong>Consistency:</strong> Maintain consistent patterns throughout your application</li>
+                        <li><strong>Feedback:</strong> Provide immediate visual feedback for user actions</li>
+                        <li><strong>Accessibility:</strong> Design for all users, including those with disabilities</li>
+                    </ul>
+                    
+                    <h3>Modern Design Trends</h3>
+                    <p>Current trends include minimalist designs, bold typography, micro-interactions, and dark mode options. However, trends should never compromise usability.</p>
+                    
+                    <p>Remember, the best interface is the one that users don't notice – it simply works.</p>
+                `,
+                tags: ['UI Design', 'UX', 'Web Development', 'User Experience']
             },
             {
+                id: 2,
                 image: './images/ecommerce.png',
                 date: '15 Oct, 2024',
                 comments: 189,
                 title: 'Tips for Effective Dashboard Layouts and User Experience',
-                url: 'https://www.rib-software.com/en/blogs/bi-dashboard-design-principles-best-practices'
+                content: `
+                    <p>Dashboards are the command centers of modern applications. They need to present complex information in a digestible, actionable format that helps users make informed decisions quickly.</p>
+                    
+                    <h3>Information Hierarchy</h3>
+                    <p>The most important information should be immediately visible. Use size, color, and positioning to create a clear visual hierarchy that guides the user's attention to what matters most.</p>
+                    
+                    <h3>Data Visualization Best Practices</h3>
+                    <ul>
+                        <li><strong>Choose the right chart type:</strong> Bar charts for comparisons, line charts for trends, pie charts for parts of a whole</li>
+                        <li><strong>Use color meaningfully:</strong> Red for alerts, green for success, neutral colors for general data</li>
+                        <li><strong>Provide context:</strong> Always include time periods, units, and comparison points</li>
+                    </ul>
+                    
+                    <h3>Layout Considerations</h3>
+                    <p>Grid systems help maintain consistency. Consider responsive design from the start – dashboards need to work on all devices. Use white space effectively to prevent cognitive overload.</p>
+                    
+                    <p>A well-designed dashboard should tell a story with data, not just display numbers.</p>
+                `,
+                tags: ['Dashboard Design', 'Data Visualization', 'UX Design', 'Analytics']
             },
             {
+                id: 3,
                 image: './images/mobile-app.png',
                 date: '08 Oct, 2024',
                 comments: 156,
                 title: 'How to Visualize Data for Better Product Decisions',
-                url: '#'
+                content: `
+                    <p>Data visualization is crucial for making informed product decisions. The right visualization can reveal insights that raw numbers hide, leading to better strategic choices.</p>
+                    
+                    <h3>Choosing the Right Visualization</h3>
+                    <p>Different data types require different visualization approaches. Understanding your data's nature – categorical, numerical, temporal, or geographical – determines the best way to present it.</p>
+                    
+                    <h3>Common Visualization Types</h3>
+                    <ul>
+                        <li><strong>Line Charts:</strong> Perfect for showing trends over time</li>
+                        <li><strong>Bar Charts:</strong> Great for comparing different categories</li>
+                        <li><strong>Scatter Plots:</strong> Ideal for showing correlations between variables</li>
+                        <li><strong>Heat Maps:</strong> Excellent for showing patterns in large datasets</li>
+                    </ul>
+                    
+                    <h3>Design Principles</h3>
+                    <p>Keep visualizations simple and focused. Avoid chart junk – unnecessary decorative elements that don't add value. Use consistent color schemes and ensure accessibility with proper contrast ratios.</p>
+                    
+                    <p>Remember: the goal is insight, not just pretty pictures. Every visualization should answer a specific question or support a particular decision.</p>
+                `,
+                tags: ['Data Visualization', 'Product Management', 'Analytics', 'Decision Making']
             },
             {
+                id: 4,
                 image: './images/web-app.png',
                 date: '01 Oct, 2024',
                 comments: 203,
                 title: 'Responsive Design: Adapting to All Device Types',
-                url: 'https://icetulip.com/responsive-design-why-your-website-needs-to-adapt-to-all-devices/'
+                content: `
+                    <p>Responsive design is no longer optional – it's essential. With users accessing websites from countless device types and screen sizes, your design must adapt seamlessly to provide optimal experiences everywhere.</p>
+                    
+                    <h3>Mobile-First Approach</h3>
+                    <p>Start designing for the smallest screen first, then progressively enhance for larger screens. This approach ensures your core content and functionality work on all devices.</p>
+                    
+                    <h3>Key Responsive Techniques</h3>
+                    <ul>
+                        <li><strong>Flexible Grid Systems:</strong> Use CSS Grid and Flexbox for layouts that adapt</li>
+                        <li><strong>Fluid Images:</strong> Ensure images scale appropriately with container sizes</li>
+                        <li><strong>Media Queries:</strong> Apply different styles based on screen characteristics</li>
+                        <li><strong>Touch-Friendly Design:</strong> Make interactive elements large enough for fingers</li>
+                    </ul>
+                    
+                    <h3>Performance Considerations</h3>
+                    <p>Responsive design isn't just about layout – it's also about performance. Consider loading different image sizes for different devices and optimizing for mobile networks.</p>
+                    
+                    <p>Test on real devices whenever possible. Emulators are helpful, but nothing beats testing on actual hardware.</p>
+                `,
+                tags: ['Responsive Design', 'Mobile Development', 'CSS', 'Web Development']
             },
             {
+                id: 5,
                 image: './images/admin-2.png',
                 date: '25 Sep, 2024',
                 comments: 178,
                 title: 'Building Scalable Web Applications with Modern Frameworks',
-                url: '#'
+                content: `
+                    <p>Modern web applications need to handle growing user bases, increasing data loads, and evolving feature requirements. Building with scalability in mind from the start saves countless hours of refactoring later.</p>
+                    
+                    <h3>Architecture Patterns</h3>
+                    <p>Component-based architectures, microservices, and modular design patterns help create applications that can grow and evolve. Separation of concerns ensures that changes in one area don't break others.</p>
+                    
+                    <h3>Framework Considerations</h3>
+                    <ul>
+                        <li><strong>React:</strong> Excellent for complex UIs with its component model and ecosystem</li>
+                        <li><strong>Vue.js:</strong> Great balance of simplicity and power, perfect for teams</li>
+                        <li><strong>Angular:</strong> Full-featured framework ideal for large enterprise applications</li>
+                        <li><strong>Next.js:</strong> React-based framework with excellent performance optimizations</li>
+                    </ul>
+                    
+                    <h3>Performance Optimization</h3>
+                    <p>Code splitting, lazy loading, and efficient state management are crucial for scalable applications. Monitor performance metrics and optimize bottlenecks before they become problems.</p>
+                    
+                    <p>Scalability is about more than just handling more users – it's about maintaining code quality and development velocity as your application grows.</p>
+                `,
+                tags: ['Web Development', 'Scalability', 'React', 'Performance']
             },
             {
+                id: 6,
                 image: './images/admin product list.png',
                 date: '18 Sep, 2024',
                 comments: 134,
                 title: 'The Future of Web Development: Trends to Watch',
-                url: '#'
+                content: `
+                    <p>Web development is constantly evolving. Staying ahead of trends helps developers build better applications and advance their careers. Here are the key trends shaping the future of web development.</p>
+                    
+                    <h3>Emerging Technologies</h3>
+                    <p>WebAssembly is bringing near-native performance to web applications. Progressive Web Apps are blurring the line between web and native apps. AI integration is becoming more accessible with APIs and frameworks.</p>
+                    
+                    <h3>Development Trends</h3>
+                    <ul>
+                        <li><strong>Jamstack Architecture:</strong> Static site generators with dynamic functionality</li>
+                        <li><strong>Serverless Computing:</strong> Focus on code, not infrastructure management</li>
+                        <li><strong>Edge Computing:</strong> Bringing computation closer to users for better performance</li>
+                        <li><strong>Low-Code/No-Code:</strong> Democratizing development for non-programmers</li>
+                    </ul>
+                    
+                    <h3>User Experience Evolution</h3>
+                    <p>Voice interfaces, gesture controls, and AR/VR integration are creating new interaction paradigms. Accessibility is becoming a priority, not an afterthought.</p>
+                    
+                    <p>The future of web development is exciting, but the fundamentals remain important: clean code, good architecture, and user-focused design will always be valuable.</p>
+                `,
+                tags: ['Web Development', 'Future Trends', 'Technology', 'Innovation']
             }
         ];
         
@@ -776,22 +919,49 @@
             const currentPosts = blogPosts.slice(startIndex, endIndex);
             
             blogGrid.innerHTML = currentPosts.map(post => `
-                <article class="blog-item">
-                    <a href="${post.url}" target="_blank">
-                        <div class="blog-image">
-                            <img src="${post.image}" alt="${post.title}">
-                        </div>
-                        <div class="blog-info">
-                            <div class="blog-meta">${post.date} / ${post.comments} Comments</div>
-                            <h3>${post.title}</h3>
-                        </div>
-                    </a>
+                <article class="blog-item" onclick="showBlogPost(${post.id})">
+                    <div class="blog-image">
+                        <img src="${post.image}" alt="${post.title}">
+                    </div>
+                    <div class="blog-info">
+                        <div class="blog-meta">${post.date} / ${post.comments} Comments</div>
+                        <h3>${post.title}</h3>
+                        <button class="blog-view-more">VIEW MORE</button>
+                    </div>
                 </article>
             `).join('');
             
             document.getElementById('paginationInfo').textContent = `${currentPage} / ${totalPages}`;
             document.getElementById('prevBtn').disabled = currentPage === 1;
             document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+        
+        function showBlogPost(postId) {
+            const post = blogPosts.find(p => p.id === postId);
+            if (!post) return;
+            
+            document.getElementById('postImage').src = post.image;
+            document.getElementById('postImage').alt = post.title;
+            document.getElementById('postMeta').textContent = `${post.date} / ${post.comments} Comments`;
+            document.getElementById('postTitle').textContent = post.title;
+            document.getElementById('postContent').innerHTML = post.content;
+            document.getElementById('postTags').innerHTML = post.tags.map(tag => 
+                `<span class="blog-tag">${tag}</span>`
+            ).join('');
+            
+            document.getElementById('blogListView').style.display = 'none';
+            document.getElementById('blogPostView').style.display = 'block';
+        }
+        
+        function showBlogList() {
+            document.getElementById('blogPostView').style.display = 'none';
+            document.getElementById('blogListView').style.display = 'block';
+            
+            // Scroll to blog section
+            document.getElementById('blog').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
         
         document.getElementById('prevBtn').addEventListener('click', () => {
