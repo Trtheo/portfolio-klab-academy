@@ -23,15 +23,12 @@
                 </div>
                 <ul class="nav-menu">
                 <div class="menu-header">
-                    <div class="menu-header-right">
-                        <div class="dark-mode-toggle mobile-toggle" onclick="toggleDarkMode()">
-                            <div class="toggle-switch">
-                                <div class="toggle-slider"></div>
-                            </div>
-                        </div>
-                        <div class="menu-close" onclick="closeMenu()">
-                            <i class="fas fa-times"></i>
-                        </div>
+                    <div class="menu-logo">
+                        <div class="logo-circle">T.N</div>
+                        <span>Theophile</span>
+                    </div>
+                    <div class="menu-close" onclick="closeMenu()">
+                        <i class="fas fa-times"></i>
                     </div>
                 </div>
                 <li><a href="#home" onclick="closeMenu()">Home</a></li>
@@ -44,12 +41,20 @@
                 <li><a href="#certificates" onclick="closeMenu()">Certificates</a></li>
                 <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                <li class="dark-mode-menu-item">
+                    <div class="dark-mode-menu-toggle" onclick="toggleDarkMode()">
+                        <!-- <span>Dark Mode</span> -->
+                        <div class="toggle-switch">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </div>
+                </li>
                 </ul>
-                <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+                <!-- <div class="dark-mode-toggle" onclick="toggleDarkMode()">
                     <div class="toggle-switch">
                         <div class="toggle-slider"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </nav>
     </header>
@@ -710,12 +715,12 @@
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <div class="footer-copyright">
-                <p>Copyright © 2025 Theophile</p>
-            </div>
+            <!-- <div class="footer-copyright">
+                <p>Copyright © <span id="currentYear"></span> Theophile</p>
+            </div> -->
         </div>
         <div class="footer-bottom">
-            <p>Copyright © 2025 Theophile &nbsp; | &nbsp; Developed by Theophile N.</p>
+            <p>Copyright © <span id="currentYearBottom"></span> Theophile &nbsp; | &nbsp; Developed by Theophile N.</p>
         </div>
     </footer>
 
@@ -1157,6 +1162,15 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderBlogPosts();
             renderCertificates();
+            
+            // Set current year dynamically
+            const currentYear = new Date().getFullYear();
+            if (document.getElementById('currentYear')) {
+                document.getElementById('currentYear').textContent = currentYear;
+            }
+            if (document.getElementById('currentYearBottom')) {
+                document.getElementById('currentYearBottom').textContent = currentYear;
+            }
         });
         
         // Scroll to top functionality
@@ -1194,11 +1208,12 @@
         const certificates = [
             {
                 id: 1,
-                title: 'Android Developer',
-                issuer: 'Udacity',
+                title: 'Android Developer Certificate',
+                issuer: 'Udacity University',
                 date: '2024',
                 category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Android-Developer-Certificate-Udacity-University.pdf',
+                description: '• Built native Android apps using Java/Kotlin • Implemented Material Design principles • Integrated APIs and databases'
             },
             {
                 id: 2,
@@ -1206,7 +1221,8 @@
                 issuer: 'Microsoft & KEPSA',
                 date: '2024',
                 category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Career Essentials Sustainable Tech -Certificate.pdf',
+                description: '• Green technology implementation • Sustainable software development practices • Environmental impact assessment'
             },
             {
                 id: 3,
@@ -1214,175 +1230,224 @@
                 issuer: 'CISCO Networking Academy',
                 date: '2025',
                 category: 'networking',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'CCNA (SWITCHING,ROUTING,WIRELESS)SRWE-Update20250316-29-rxpgjk.pdf',
+                description: '• Network configuration and troubleshooting • VLAN and routing protocols • Wireless network security and management'
             },
             {
                 id: 4,
-                title: 'IT Essentials',
-                issuer: 'CISCO Networking Academy',
-                date: '2022',
-                category: 'networking',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 5,
-                title: 'Introduction to Cybersecurity',
-                issuer: 'CISCO Networking Academy',
-                date: '2025',
-                category: 'security',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 6,
-                title: 'Data Science & Analytics',
+                title: 'Data Analytics Certificate',
                 issuer: 'HP Foundation & HP Life',
                 date: '2024',
                 category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'DataAnalytics Certificate.pdf',
+                description: '• Data visualization and reporting • Statistical analysis and insights • Business intelligence dashboard creation'
             },
             {
-                id: 7,
+                id: 5,
                 title: 'Digital Transformation Essentials',
                 issuer: 'Microsoft & KEPSA',
                 date: '2024',
                 category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Digital Transformative Essentials  -  Certificate.pdf',
+                description: '• Cloud migration strategies • Digital workflow optimization • Technology adoption frameworks'
+            },
+            {
+                id: 6,
+                title: 'Effective Presentation Certificate',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                pdf: 'Effective Presentation- Certificate.pdf',
+                description: '• Professional presentation design • Client communication skills • Technical concept visualization'
+            },
+            {
+                id: 7,
+                title: 'Entrepreneurship and Startup',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                pdf: 'Entrepreneurship and Startup-Certificate.pdf',
+                description: '• Business model development • Tech startup strategies • Product development lifecycle'
             },
             {
                 id: 8,
-                title: 'Effective Presentations',
-                issuer: 'Microsoft & KEPSA',
-                date: '2024',
-                category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 9,
-                title: 'Entrepreneurship and Start up Fundamentals',
-                issuer: 'Microsoft & KEPSA',
-                date: '2024',
-                category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 10,
-                title: 'Frontend Developer (ReactJS)',
+                title: 'Frontend Developer (React)',
                 issuer: 'HackerRank',
                 date: '2025',
                 category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Frontend_Developer_React Certificate-From HackerRank.pdf',
+                description: '• React.js component development • State management with Redux • Responsive UI implementation'
             },
             {
-                id: 11,
-                title: 'Generative AI Fundamentals',
+                id: 9,
+                title: 'Generative AI Certificate',
                 issuer: 'Microsoft & KEPSA',
                 date: '2025',
                 category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Generative AI-Certificate.pdf',
+                description: '• AI model integration • Prompt engineering • Automated content generation systems'
             },
             {
-                id: 12,
+                id: 10,
                 title: 'HTML & CSS Certificate',
                 issuer: 'IHUZO Academy & Talent4Startups',
                 date: '2024',
                 category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'HTML & CSS  Certifacte.pdf',
+                description: '• Semantic HTML structure • Advanced CSS animations • Responsive web design fundamentals'
             },
             {
-                id: 13,
-                title: 'Computer Hardware and Software Troubleshooting',
+                id: 11,
+                title: 'IT Essentials Certificate',
                 issuer: 'CISCO Networking Academy',
                 date: '2022',
                 category: 'networking',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'IT_Essentials_certificate-7.pdf',
+                description: '• Hardware troubleshooting • Operating system installation • Network configuration basics'
+            },
+            {
+                id: 12,
+                title: 'Java Certificate',
+                issuer: 'IHUZO Academy & Talent4Startups',
+                date: '2024',
+                category: 'web',
+                pdf: 'Java  Certificate.pdf',
+                description: '• Object-oriented programming • Spring Boot applications • Database connectivity with JDBC'
+            },
+            {
+                id: 13,
+                title: 'Modern JavaScript Certificate',
+                issuer: 'IHUZO Academy & Talent4Startups',
+                date: '2024',
+                category: 'web',
+                pdf: 'Modern JavaScript  Certficate.pdf',
+                description: '• ES6+ features and syntax • Async/await programming • DOM manipulation and APIs'
             },
             {
                 id: 14,
-                title: 'Java Programming',
-                issuer: 'IHUZO Academy & Talent4Startups',
-                date: '2024',
-                category: 'web',
-                image: './images/cert-placeholder.jpg'
+                title: 'Networking & Cybersecurity',
+                issuer: 'CISCO Networking Academy',
+                date: '2025',
+                category: 'security',
+                pdf: 'Networking_CYber-Certificate_CISCO.pdf',
+                description: '• Network security protocols • Threat detection and prevention • Firewall configuration and management'
             },
             {
                 id: 15,
-                title: 'Modern JavaScript Frameworks',
-                issuer: 'IHUZO Academy & Talent4Startups',
-                date: '2024',
-                category: 'web',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 16,
-                title: 'Server Side Development With NodeJS',
+                title: 'Node.js Certificate',
                 issuer: 'Microsoft & KEPSA',
                 date: '2025',
                 category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Node JS Certificate.pdf',
+                description: '• Server-side JavaScript development • RESTful API creation • Express.js framework mastery'
+            },
+            {
+                id: 16,
+                title: 'PowerPoint Certificate',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                pdf: 'PowerPoint Certificate.pdf',
+                description: '• Professional slide design • Data visualization in presentations • Interactive presentation features'
             },
             {
                 id: 17,
+                title: 'React.js Certificate',
+                issuer: 'IHUZO Academy & Talent4Startups',
+                date: '2024',
+                category: 'web',
+                pdf: 'React JS  Certificate.pdf',
+                description: '• Component-based architecture • Hooks and state management • React Router implementation'
+            },
+            {
+                id: 18,
                 title: 'Social Media Marketing',
                 issuer: 'Microsoft & KEPSA',
                 date: '2024',
                 category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 18,
-                title: 'Software Engineer',
-                issuer: 'HackerRank',
-                date: '2025',
-                category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'Social media Marketing-Theophile_NIYIGABA.pdf',
+                description: '• Digital marketing strategies • Content creation and scheduling • Analytics and performance tracking'
             },
             {
                 id: 19,
+                title: 'Software Engineering',
+                issuer: 'Jackal Tech',
+                date: '2025',
+                category: 'web',
+                pdf: 'Software Engineering JACKAL TECH.pdf',
+                description: '• Full-stack development • Agile methodology • Code review and testing practices'
+            },
+            {
+                id: 20,
+                title: 'Software Engineer Certificate',
+                issuer: 'HackerRank',
+                date: '2025',
+                category: 'web',
+                pdf: 'Software_Engineer Certificate.pdf',
+                description: '• Algorithm optimization • Data structures implementation • Problem-solving and debugging'
+            },
+            {
+                id: 21,
+                title: 'Software Engineer Intern Certificate',
+                issuer: 'TechnoHacks Solution',
+                date: '2025',
+                category: 'web',
+                pdf: 'Software_Engineer_intern certificate.pdf',
+                description: '• Real-world project development • Team collaboration • Version control with Git'
+            },
+            {
+                id: 22,
                 title: 'SQL Advanced Certificate',
                 issuer: 'HackerRank',
                 date: '2025',
                 category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'SQL_Advanced Certificate.pdf',
+                description: '• Complex query optimization • Database design and normalization • Stored procedures and functions'
             },
             {
-                id: 20,
+                id: 23,
                 title: 'System Administrator Certificate',
                 issuer: 'Microsoft & KEPSA',
                 date: '2024',
                 category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 21,
-                title: 'UX Design & Design Thinking',
-                issuer: 'Microsoft & KEPSA',
-                date: '2024',
-                category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 22,
-                title: 'Generative AI Fundamentals',
-                issuer: 'UNITAR & Microsoft',
-                date: '2024',
-                category: 'microsoft',
-                image: './images/cert-placeholder.jpg'
-            },
-            {
-                id: 23,
-                title: 'Web Development',
-                issuer: 'Code Alpha',
-                date: '2025',
-                category: 'web',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'System_Administrator_Certificate_ By Microsoft and KEPSA.pdf',
+                description: '• Server management and maintenance • User access control • System monitoring and backup'
             },
             {
                 id: 24,
-                title: 'WAVUMBUZI ENTREPRENEURSHIP CHALLENGE RWANDA',
-                issuer: 'Ministry of Education',
+                title: 'UI/UX Certificate',
+                issuer: 'Microsoft & KEPSA',
+                date: '2024',
+                category: 'microsoft',
+                pdf: 'UI UX  Certificate.pdf',
+                description: '• User research and personas • Wireframing and prototyping • Usability testing and optimization'
+            },
+            {
+                id: 25,
+                title: 'Generative AI Fundamentals',
+                issuer: 'UNITAR',
+                date: '2024',
+                category: 'microsoft',
+                pdf: 'Unitar-Generative AI Fundamental - Theophile_Niyigaba.pdf',
+                description: '• AI model training • Machine learning algorithms • Automated solution development'
+            },
+            {
+                id: 26,
+                title: 'WAVUMBUZI Entrepreneurship Challenge',
+                issuer: 'Ministry of Education - Rwanda',
                 date: '2021',
                 category: 'awards',
-                image: './images/cert-placeholder.jpg'
+                pdf: 'WAVUMBUZI.pdf',
+                description: '• Innovation and creativity • Business pitch presentation • Entrepreneurial leadership skills'
+            },
+            {
+                id: 27,
+                title: 'Web Development Certificate',
+                issuer: 'CodeAlpha',
+                date: '2025',
+                category: 'web',
+                pdf: 'WEB DEVELOPMENT - CodeAlpha Certificate.pdf',
+                description: '• Full-stack web applications • Modern development frameworks • Deployment and hosting'
             }
         ];
         
@@ -1398,6 +1463,7 @@
                         <h3>${cert.title}</h3>
                         <p class="certificate-issuer">${cert.issuer}</p>
                         <p class="certificate-date">${cert.date}</p>
+                        <p class="certificate-description">${cert.description}</p>
                         <a href="./certificates/${cert.pdf}" target="_blank" class="read-btn">
                             <i class="fas fa-file-pdf"></i> READ
                         </a>

@@ -31,7 +31,7 @@ body {
     padding: 20px 50px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
-    z-index: 1000;
+    z-index: 10000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -321,7 +321,7 @@ body {
 .dark-mode .skills-header p,
 .dark-mode .certificates-header p,
 .dark-mode .experience-header p {
-    color: #b0b0b0 !important;
+    color: #c0c0c0 !important;
 }
 
 .dark-mode .stat-item,
@@ -351,8 +351,79 @@ body {
 .dark-mode .certificate-info h3,
 .dark-mode .timeline-content h3,
 .dark-mode .timeline-content p,
-.dark-mode .education-content h3 {
+.dark-mode .education-content h3,
+.dark-mode .timeline-content h4,
+.dark-mode .education-content h4,
+.dark-mode .education-details,
+.dark-mode .specializations,
+.dark-mode .specializations li,
+.dark-mode .project-highlights li {
     color: #e0e0e0 !important;
+}
+
+.dark-mode .certificate-description {
+    color: #b0b0b0 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-left-color: #667eea !important;
+}
+
+.dark-mode .certificate-issuer {
+    color: #8a9cff !important;
+}
+
+.dark-mode .certificate-date {
+    color: #888 !important;
+}
+
+.dark-mode .timeline-date {
+    color: #e0e0e0 !important;
+    background: rgba(102, 126, 234, 0.2) !important;
+}
+
+.dark-mode .gpa {
+    color: #4CAF50 !important;
+}
+
+.dark-mode .specializations strong {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .project-highlights ul {
+    color: #c0c0c0 !important;
+}
+
+.dark-mode .skill-tag {
+    background: rgba(102, 126, 234, 0.3) !important;
+    color: #8a9cff !important;
+}
+
+.dark-mode .skill-category h3 {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .skill-subcategory h4 {
+    color: #c0c0c0 !important;
+    border-bottom-color: #667eea !important;
+}
+
+.dark-mode .case-study-link {
+    color: #c0c0c0 !important;
+}
+
+.dark-mode .case-study-link:hover {
+    color: #8a9cff !important;
+    border-color: #8a9cff !important;
+    background: rgba(138, 156, 255, 0.1) !important;
+}
+
+.dark-mode .portfolio-category {
+    color: #8a9cff !important;
+}
+
+.dark-mode .tech-tag {
+    background: rgba(102, 126, 234, 0.2) !important;
+    color: #8a9cff !important;
+    border-color: rgba(138, 156, 255, 0.3) !important;
 }
 
 .dark-mode .about,
@@ -375,7 +446,8 @@ body {
 
 .dark-mode .contact-info h2,
 .dark-mode .contact-info p,
-.dark-mode .contact-value {
+.dark-mode .contact-value,
+.dark-mode .contact-label {
     color: #e0e0e0 !important;
 }
 
@@ -388,7 +460,7 @@ body {
 
 .dark-mode .form-row input::placeholder,
 .dark-mode .form-row textarea::placeholder {
-    color: #888 !important;
+    color: white !important;
 }
 
 .hero-image {
@@ -1814,25 +1886,26 @@ body {
     .nav-menu {
         position: fixed;
         top: 0;
-        left: -100%;
+        right: -100%;
         width: 100%;
-        height: auto;
+        height: 80vh;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(15px);
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
         gap: 0;
-        transition: left 0.3s ease;
-        z-index: 999;
+        transition: right 0.3s ease;
+        z-index: 9999;
         padding-top: 80px;
         padding-bottom: 20px;
-        border-bottom: 2px solid #e0e0e0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
     }
     
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
     
     .menu-header {
@@ -1841,7 +1914,7 @@ body {
         left: 0;
         right: 0;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         padding: 0 25px;
     }
@@ -1943,7 +2016,7 @@ body {
     }
     
     .dark-mode-toggle {
-        display: none;
+        display: none !important;
     }
     
     .logo {
@@ -2181,8 +2254,44 @@ body {
     }
     
     .dark-mode .nav-menu {
-        background: rgba(15, 15, 25, 0.98) !important;
-        backdrop-filter: blur(20px) !important;
+        background: rgba(15, 15, 25, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        height: 80vh !important;
+    }
+    
+    .dark-mode-menu-item {
+        border-bottom: none !important;
+        padding: 0 !important;
+        display: block;
+    }
+    
+    @media (min-width: 769px) {
+        .dark-mode-menu-item {
+            display: none !important;
+        }
+    }
+    
+    .dark-mode-menu-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .dark-mode-menu-toggle:hover {
+        background: rgba(102, 126, 234, 0.1);
+    }
+    
+    .dark-mode-menu-toggle span {
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+    }
+    
+    .dark-mode .dark-mode-menu-toggle span {
+        color: #e0e0e0 !important;
     }
     
     .dark-mode .menu-logo {
@@ -2190,16 +2299,13 @@ body {
     }
     
     .dark-mode .menu-close {
-        color: #333 !important;
-        background: rgba(255, 255, 255, 0.9) !important;
+        color: #e0e0e0 !important;
+        background: rgba(255, 255, 255, 0.1) !important;
     }
     
     .dark-mode .menu-close:hover {
         color: #667eea !important;
-    }
-    
-    .mobile-toggle {
-        display: block !important;
+        background: rgba(102, 126, 234, 0.2) !important;
     }
     
 
@@ -2356,6 +2462,17 @@ body {
     font-size: 12px;
     color: #999;
     margin-bottom: 15px;
+}
+
+.certificate-description {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding: 12px;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
 }
 
 .read-btn {
